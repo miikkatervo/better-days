@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SurveyComponent implements OnInit {
   name:string = "Miikka";
+  date:string = new Date().toLocaleDateString();
   constructor() { }
 
   ngOnInit() {
