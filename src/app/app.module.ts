@@ -5,16 +5,33 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SurveyComponent } from './survey/survey.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CoreModule } from './core/core.module';
+import { AngularFireModule } from '@angular/fire';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+
+var config = {
+  apiKey: "AIzaSyDc58a8KmQMX3xdceN_26PT1Lx0W8Xxk1Y",
+  authDomain: "better-days-af2f6.firebaseapp.com",
+  databaseURL: "https://better-days-af2f6.firebaseio.com",
+  projectId: "better-days-af2f6",
+  storageBucket: "better-days-af2f6.appspot.com",
+  messagingSenderId: "427739240821",
+  appId: "1:427739240821:web:d2a83a528619863b2b9b3c",
+  measurementId: "G-SDZLYD1TJK"
+};
 
 @NgModule({
   declarations: [
     AppComponent,
-    SurveyComponent
+    SurveyComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    CoreModule,
+    AngularFireModule.initializeApp(config)
   ],
   providers: [],
   bootstrap: [AppComponent]
