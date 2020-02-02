@@ -1,12 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{{ title }}</title>
-</head>
-<body>
-  <app-survey></app-survey>
-</body>
-</html>
+<div class="showData">
+  <div class="wrapper">
+    <div *ngIf="auth.user$ | async; then authenticated else guest">
+      <!-- template will replace this div -->
+    </div>
+
+    <!-- User NOT logged in -->
+    <ng-template #guest>
+      <app-user-profile></app-user-profile>
+    </ng-template>
+
+
+    <!-- User logged in -->
+    <ng-template #authenticated>
+      <app-survey></app-survey>
+    </ng-template>
+  </div>
+</div>
