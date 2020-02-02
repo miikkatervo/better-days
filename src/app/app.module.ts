@@ -24,7 +24,7 @@ var config = {
   declarations: [
     AppComponent,
     SurveyComponent,
-    UserProfileComponent
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,

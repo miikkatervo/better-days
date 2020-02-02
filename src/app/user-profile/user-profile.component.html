@@ -1,25 +1,9 @@
-<div *ngIf="auth.user$ | async; then authenticated else guest">
-    <!-- template will replace this div -->
+
+<div class="hero-unit">
+  <img id="img" src ="../../assets/images/google_logo.png" width="100" height="100">
+  <div>
+    <button id="signIn" (click)="auth.googleSignin()">
+      Sign in with Google
+    </button>
+  </div>
 </div>
-
-<!-- User NOT logged in -->
-<ng-template #guest>
-<h3>Howdy, GUEST</h3>
-<p>Login to get started...</p>
-
-<button (click)="auth.googleSignin()">
-    <i class="fa fa-google"></i> Connect Google
-</button>
-
-</ng-template>
-
-
-<!-- User logged in -->
-<ng-template #authenticated>
-<div *ngIf="auth.user$ | async as user">
-    <h3>Howdy, {{ user.displayName }}</h3>
-    <img  [src]="user.photoURL">
-    <p>UID: {{ user.uid }}</p>
-    <button (click)="auth.signOut()">Logout</button>
-</div>
-</ng-template>
