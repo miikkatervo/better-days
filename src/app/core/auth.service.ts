@@ -10,11 +10,12 @@ import {
 
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { User } from './user.model';
+import { User } from '../models/user.model';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   user$: Observable<any>;
+  uid$: string;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -24,6 +25,7 @@ export class AuthService {
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
         if (user) {
+          this.uid$ = user.uid;
           return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
           return of(null);
@@ -57,6 +59,10 @@ export class AuthService {
 
     return userRef.set(data, { merge: true });
 
+  }
+
+  getUid() {
+    return this.uid$;
   }
 
 }

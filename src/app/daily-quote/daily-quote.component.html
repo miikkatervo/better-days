@@ -1,0 +1,36 @@
+<div class="container">
+
+    <div class="mood">
+        <p>
+            <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
+                    [attr.aria-expanded]="isCollapsed" aria-controls="collapseExample">
+                {{ feeling$ }}
+            </button>
+          </p>
+          <div id="collapseExample" [ngbCollapse]="!isCollapsed">
+            <div class="card">
+              <div class="card-body">
+                <div *ngIf="currentMood$ >= 3; else stressed">
+                    <p>Great that you are having a nice morning, here is what you had on your mind in the past:</p>
+                    <p>{{ moods$ }}</p>
+                </div>
+                <ng-template #stressed>
+                    <p>Everything is going to be allright, don't let your mind tell you otherwise, here is something you were
+                        greatful for:</p>
+                    <p>{{ moods$ }}</p>
+                </ng-template>
+              </div>
+            </div>
+          </div>
+
+    </div>
+
+    <div class="quote">
+        <h3>Your daily quote</h3>
+        <h4>{{ quote$ }}</h4>
+        <h5>- {{ author$ }}</h5>
+    </div>
+    <h4>See you tomorrow!</h4>
+
+
+</div>

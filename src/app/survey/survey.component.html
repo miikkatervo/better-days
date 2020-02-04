@@ -1,27 +1,19 @@
+
 <div *ngIf="auth.user$ | async as user" class="hero-unit">
-  <h2>Good Morning {{ user.displayName }}!</h2>
-  <h3>Today is {{ date }}</h3>
-  <h4>How are you feeling?</h4>
-  <div id="rating">
-    <span>
-      <button type="button" class="btn btn-outline-secondary mr-2">
-        1
+  <div *ngIf="!startSurvey; else survey">
+    <h2>Good Morning {{ user.displayName }}!</h2>
+    <h3>Today is {{ date }}</h3>
+      <button type="button" id="startSurvey" (click)="onClick()">
+        Start daily survey
       </button>
-      <button type="button" class="btn btn-outline-secondary mr-2">
-        2
+      <div>
+      <button type="button" id="logout" (click)="auth.signOut()">
+        Log Out
       </button>
-      <button type="button" class="btn btn-outline-secondary mr-2">
-        3
-      </button>
-      <button type="button" class="btn btn-outline-secondary mr-2">
-        4
-      </button>
-      <button type="button" class="btn btn-outline-secondary mr-2">
-        5
-      </button>
-    </span>
+    </div>
   </div>
-  <button type="button" id="logout" (click)="auth.signOut()"> 
-    Log Out
-  </button>
+
+  <ng-template #survey>
+    <app-add-mood-item></app-add-mood-item>
+  </ng-template>
 </div>
