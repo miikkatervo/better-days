@@ -26,13 +26,14 @@ export class MoodService {
       .catch(function(error) {
         console.log(error);
       });
+      // iterate the user's streak
+      const streak = this.afs.collection('user-streaks', ref => ref.where('uid', '==', uid)).valueChanges();
    }
 
    getMood(){
       const uid:string = this.auth.getUid();
       const docRef = this.afs.collection('users').doc(uid).collection('daily-moods');
       return docRef.valueChanges();
-
 
 
       /*

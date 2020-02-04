@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { QuoteService } from '../core/quote.service';
 import { UsersMoodService } from '../core/users-mood.service';
 import { MoodService } from '../core/mood.service';
+import { AuthService } from '../core/auth.service';
 
 @Component({
   selector: 'app-daily-quote',
@@ -19,7 +20,8 @@ export class DailyQuoteComponent implements OnInit {
 
   constructor(private quoteService: QuoteService,
               private userMood: UsersMoodService,
-              private moodService: MoodService) { }
+              private moodService: MoodService,
+              public auth: AuthService) { }
 
   ngOnInit() {
     this.quoteService.fetchDailyQuote().subscribe(quote => {
@@ -32,6 +34,7 @@ export class DailyQuoteComponent implements OnInit {
     const moodReps = [["red", "stressed"], ["yellow", "bugged out"], ["yellow", "ok"], ["green", "fine"], ["green", "great"]];
     this.feeling$ = moodReps[mood-1][1];
     this.fcolor$ = moodReps[mood-1][0];
+
   }
 
   helpMood(mood: Number) {

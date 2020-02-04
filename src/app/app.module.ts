@@ -13,6 +13,7 @@ import { AddMoodItemComponent } from './add-mood-item/add-mood-item.component';
 import { FormsModule } from '@angular/forms';
 import { DailyQuoteComponent } from './daily-quote/daily-quote.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 var config = {
   apiKey: "AIzaSyDc58a8KmQMX3xdceN_26PT1Lx0W8Xxk1Y",
@@ -33,6 +34,7 @@ var config = {
     MoodSurveyItemComponent,
     AddMoodItemComponent,
     DailyQuoteComponent,
+    LoadingSpinnerComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,8 @@
 <div class="showData">
   <div class="wrapper">
-    <div *ngIf="auth.user$ | async; then authenticated else guest">
+    <app-loading-spinner *ngIf="showLoading$; else data"></app-loading-spinner>
+    <ng-template #data>
+      <div  *ngIf="auth.user$ | async; then authenticated else guest">
       <!-- template will replace this div -->
     </div>
 
@@ -13,6 +15,7 @@
     <!-- User logged in -->
     <ng-template #authenticated>
       <app-survey></app-survey>
+    </ng-template>
     </ng-template>
   </div>
 </div>

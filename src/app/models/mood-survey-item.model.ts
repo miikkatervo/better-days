@@ -4,6 +4,6 @@ export interface MoodSurveyItem {
     mood: Number,
     grateful: string,
     onyourmind: string,
-    date: Date
-    user?: User
+    date: Date,
+    uid: string
 }

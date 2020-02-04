@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class SurveyComponent implements OnInit {
   date:string = new Date().toLocaleDateString();
   startSurvey: boolean = false;
-  constructor(public auth: AuthService, private router: Router) { }
+  constructor(public auth: AuthService) { }
   ngOnInit() {
   }
 
