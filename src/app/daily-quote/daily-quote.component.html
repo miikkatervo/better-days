@@ -2,10 +2,10 @@
     <div class="mood">
       <h2 id="summary">Summary</h2>
         <p>
-          <span id="feeling">
+          <span *ngIf="fcolor$ as mood-color" id="feeling">
             <p>You are feeling </p>
             <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
-                    [attr.aria-expanded]="isCollapsed" aria-controls="collapseExample">
+                    [attr.aria-expanded]="isCollapsed" aria-controls="collapseExample" id="feeling-button">
                 {{ feeling$ }}
             </button>
           </span>
@@ -32,10 +32,4 @@
         <h4>{{ quote$ }}</h4>
         <h5>- {{ author$ }}</h5>
     </div>
-    <div *ngIf="auth.user$ | async as user" class="streak">
-      {{ user.streak }}
-    </div>
-    <h6>See you tomorrow!</h6>
-
-
 </div>

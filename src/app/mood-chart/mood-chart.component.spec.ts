@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MoodSurveyItemComponent } from './mood-survey-item.component';
+import { MoodChartComponent } from './mood-chart.component';
 
-describe('MoodSurveyItemComponent', () => {
-  let component: MoodSurveyItemComponent;
-  let fixture: ComponentFixture<MoodSurveyItemComponent>;
+describe('MoodChartComponent', () => {
+  let component: MoodChartComponent;
+  let fixture: ComponentFixture<MoodChartComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MoodSurveyItemComponent ]
+      declarations: [ MoodChartComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MoodSurveyItemComponent);
+    fixture = TestBed.createComponent(MoodChartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

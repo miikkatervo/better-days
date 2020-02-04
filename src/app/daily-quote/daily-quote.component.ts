@@ -17,6 +17,7 @@ export class DailyQuoteComponent implements OnInit {
   currentMood$: Number;
   feeling$:string;
   fcolor$:string;
+  isCollapsed: boolean;
 
   constructor(private quoteService: QuoteService,
               private userMood: UsersMoodService,
