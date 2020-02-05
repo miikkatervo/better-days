@@ -18,6 +18,8 @@ export class DailyQuoteComponent implements OnInit {
   feeling$:string;
   fcolor$:string;
   isCollapsed: boolean;
+  showChart:boolean;
+  showLoading:boolean = true;
 
   constructor(private quoteService: QuoteService,
               private userMood: UsersMoodService,
@@ -29,13 +31,13 @@ export class DailyQuoteComponent implements OnInit {
       const data = quote["contents"]["quotes"][0];
       this.quote$ = data["quote"];
       this.author$ = data["author"];
+      this.showLoading = false;
     });
     var mood: number = Number(this.userMood.currentMood$);
     this.helpMood(mood);
-    const moodReps = [["red", "stressed"], ["yellow", "bugged out"], ["yellow", "ok"], ["green", "fine"], ["green", "great"]];
-    this.feeling$ = moodReps[mood-1][1];
-    this.fcolor$ = moodReps[mood-1][0];
-
+    const moodReps = ["Stressed","Bugged out","Ok","Fine", "Great"];
+    this.feeling$ = moodReps[mood-1];
+    this.showChart = this.moodService.showChart$;
   }
 
   helpMood(mood: Number) {
@@ -51,6 +53,10 @@ export class DailyQuoteComponent implements OnInit {
         this.moods$ = data[Math.floor(Math.random() * data.length)]
       });
     }
+  }
+
+  changeToChart() {
+    this.showChart = !this.showChart;
   }
 
 }

@@ -11,7 +11,7 @@ import { UsersMoodService } from '../core/users-mood.service';
 })
 export class AddMoodItemComponent implements OnInit {
   moodItem: MoodSurveyItem = {
-    mood: 5,
+    mood: "5",
     onyourmind: '',
     grateful: '',
     date: new Date, 

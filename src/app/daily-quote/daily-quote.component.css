@@ -3,16 +3,37 @@
     font-size: 20px;
 }
 #summary {
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     font-family: 'Pacifico', cursive; 
+    text-align: center;
 }
 .quote {
     margin-top: 30px;
     margin-left: 5;
 }
+.quote #dailyQ {
+    font-family: 'Pacifico', cursive; 
+    margin-bottom: 10px;
+}
+
+#feeling p {
+    font-size: 15px;
+}
+
+#feeling-button{
+    margin-left: 10px;
+}
+
+#chartBut{
+    margin-top: 1opx;
+}
 
 h4, h5{
     font-family: 'Crimson Text', serif;
+}
+
+#feeling{
+    display: inline-flex;
 }
 
 h6 {
@@ -21,8 +42,9 @@ h6 {
     font-size: 20px;
 }
 
-.card {
+.card p {
     padding: 5px;
+    font-size: 20px;
 }
 
 #past {

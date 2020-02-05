@@ -5,8 +5,6 @@ import {
 } from '@angular/fire/firestore';
 import { MoodSurveyItem } from '../models/mood-survey-item.model';
 import { AuthService } from './auth.service';
-import { Observable } from 'rxjs'
-import { async } from '@angular/core/testing';
 
 
 @Injectable({
@@ -17,8 +15,9 @@ export class MoodService {
   constructor(
     private afs: AngularFirestore,
     public auth: AuthService
-  ) {
-   }
+  ) {}
+
+  showChart$: boolean = false;
 
    addItem(item: MoodSurveyItem){ // add a daily mood-survey to firestore
      const uid = this.auth.getUid();
