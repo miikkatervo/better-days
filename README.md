@@ -1,7 +1,7 @@
 # Better Days
 
 The current master branch is deployed using Netlify.
-Open https://jolly-hugle-6697c3.netlify.com/ to view it in the browser.
+Open https://pedantic-easley-026d5a.netlify.com/ to view it in the browser.
 
 This single-page web application is used to enhance your mental wellbeing. This is done by everyday, preferebaly in the morning, to go to the app and fill out a quick daily-mood-survey. The survey asks you your current mood from one to five (1 = horrible, 5 = great). Then it asks you what you are grateful for and what you are stressed or worried about at that moment. This makes the user have to process his/her feelings, which usually helps out if he/she is feeling down. 
 
