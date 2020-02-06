@@ -17,7 +17,7 @@ export class DailyQuoteComponent implements OnInit {
   currentMood$: Number;
   feeling$:string; 
   showChart:boolean; // if true, display mood-chart 
-  showLoading:boolean = true; // if true, display loading-spinner
+  showLoading$:boolean = true; // if true, display loading-spinner
   showReflect:boolean = false; // if ture, display reflection-view
 
   constructor(private quoteService: QuoteService,
@@ -30,7 +30,7 @@ export class DailyQuoteComponent implements OnInit {
       const data = quote["contents"]["quotes"][0];
       this.quote$ = data["quote"];
       this.author$ = data["author"];
-      this.showLoading = false;
+      this.showLoading$ = false;
     });
     var mood: number = Number(this.userMood.currentMood$);
     this.helpMood(mood);
