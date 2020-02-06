@@ -10,6 +10,7 @@ import { UsersMoodService } from '../core/users-mood.service';
   styleUrls: ['./add-mood-item.component.css']
 })
 export class AddMoodItemComponent implements OnInit {
+
   moodItem: MoodSurveyItem = {
     mood: "5",
     onyourmind: '',
@@ -17,7 +18,8 @@ export class AddMoodItemComponent implements OnInit {
     date: new Date, 
     uid: this.moodService.auth.uid$
   }
-  surveyDone: boolean = false;
+  surveyDone: boolean = false; // if false, display the form view
+
   constructor(private moodService: MoodService,
               private userMood: UsersMoodService) { }
   ngOnInit() {
@@ -30,7 +32,7 @@ export class AddMoodItemComponent implements OnInit {
       this.userMood.currentMood$ = this.moodItem.mood;
       this.moodItem.onyourmind='';
       this.moodItem.grateful='';
-      this.surveyDone = true
+      this.surveyDone = true;
     } else {
       window.alert("Texts must be longer.");
     }

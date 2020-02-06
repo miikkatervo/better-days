@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MoodService } from '../core/mood.service';
 import { Chart } from 'chart.js';
-import { ViewChild, ElementRef } from '@angular/core';
 import { DailyQuoteComponent } from '../daily-quote/daily-quote.component';
 
 @Component({
@@ -32,7 +31,7 @@ async getLatestMoods()  {
     if (moodValues.length < max) max = moodValues.length;
     this.values = moodValues.slice(0, max);
     this.labels = dateLabels.slice(0, max);
-    this.moodChart = new Chart('canvas', {
+    this.moodChart = new Chart('canvas', { // create chart with chart.js
       type: 'line',
       data: {
         labels: this.labels,

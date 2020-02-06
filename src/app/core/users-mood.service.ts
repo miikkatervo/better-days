@@ -6,5 +6,5 @@ import { Injectable } from '@angular/core';
 export class UsersMoodService {
 
   constructor() { }
-  currentMood$:string = "5"; 
+  currentMood$:string = "5";
 }

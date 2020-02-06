@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../core/auth.service'
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-survey',
@@ -9,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class SurveyComponent implements OnInit {
   date:string = new Date().toLocaleDateString();
-  startSurvey: boolean = false;
+  startSurvey: boolean = false; // if true, display daily-mood-form
   constructor(public auth: AuthService) { }
   ngOnInit() {
   }

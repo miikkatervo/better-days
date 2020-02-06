@@ -3,7 +3,6 @@ import { QuoteService } from '../core/quote.service';
 import { UsersMoodService } from '../core/users-mood.service';
 import { MoodService } from '../core/mood.service';
 import { AuthService } from '../core/auth.service';
-import { database } from 'firebase';
 
 @Component({
   selector: 'app-daily-quote',
@@ -14,13 +13,12 @@ export class DailyQuoteComponent implements OnInit {
 
   quote$: string;
   author$: string;
-  moods$: any;
+  moods$: any; // thought from the past
   currentMood$: Number;
-  feeling$:string;
-  fcolor$:string;
-  showChart:boolean;
-  showLoading:boolean = true;
-  showReflect:boolean = false;
+  feeling$:string; 
+  showChart:boolean; // if true, display mood-chart 
+  showLoading:boolean = true; // if true, display loading-spinner
+  showReflect:boolean = false; // if ture, display reflection-view
 
   constructor(private quoteService: QuoteService,
               private userMood: UsersMoodService,
@@ -36,7 +34,7 @@ export class DailyQuoteComponent implements OnInit {
     });
     var mood: number = Number(this.userMood.currentMood$);
     this.helpMood(mood);
-    const moodReps = ["Stressed","Bugged out","Ok","Fine", "Great"];
+    const moodReps = ["stressed","bugged out","ok","fine", "great"];
     this.feeling$ = moodReps[mood-1];
     this.showChart = this.moodService.showChart$;
   }

@@ -18,6 +18,7 @@
 
 #feeling{
     margin-top: 20px;
+    display: inline-flex;
 }
 
 #feeling-button{
@@ -37,21 +38,9 @@
     margin-top: 15px;
     margin-bottom: 10px;;
 }
-#feeling{
-    display: inline-flex;
-}
 
 h6 {
     padding-top: 30px;
     text-align: center;
     font-size: 20px;
-}
-
-.card p {
-    padding: 5px;
-    font-size: 20px;
-}
-
-#past {
-    font-size: 25px;
 }
