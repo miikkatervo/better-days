@@ -2,40 +2,28 @@
   <app-loading-spinner *ngIf="showLoading$; else data"></app-loading-spinner>
   <ng-template #data>
     <div *ngIf="!showChart; else chart">
-      <div class="mood">
-        <h2 id="summary">Summary</h2>
-        <p>
-          <span id="feeling">
-       <p>You are feeling </p>
-            <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
-              [attr.aria-expanded]="isCollapsed" aria-controls="collapseExample" id="feeling-button">
-              {{ feeling$ }}
-            </button>
-          </span>
-        </p>
-        <div id="collapseExample" [ngbCollapse]="!isCollapsed">
-          <div class="card">
-            <div class="card-body">
-              <div *ngIf="currentMood$ >= 3; else stressed">
-                <p>Great that you are having a nice morning, life has it's ups and downs so here is an example of what you had on your mind in the past:</p>
-                <p id="past">{{ moods$ }}</p>
-              </div>
-              <ng-template #stressed>
-                <p>Everything is going to be allright, don't let your mind tell you otherwise. To cheer you up, here is something you were greatful for in the past:</p>
-                <p id="past">{{ moods$ }}</p>
-              </ng-template>
-            </div>
+      <div *ngIf="!showReflect; else reflect">
+        <div class="mood">
+          <h2 id="summary">Summary</h2>
+          <div id="feeling">
+            <h4>You are feeling&nbsp;</h4>
+            <h4 id="cur">{{ feeling$ }}</h4>
           </div>
+          <div>
+            <button type="button" class="btn btn-outline-primary" id="reflectBut" (click)="showReflect = true">
+              Reflection on your curent mood
+            </button>
+          </div>
+          <button type="button" class="btn btn-outline-primary" id="chartBut" (click)="changeToChart()">
+            Show past moods
+          </button>
         </div>
-        <button type="button" class="btn btn-outline-primary" id ="chartBut" (click)="changeToChart()">
-          Show past moods
-        </button>
-      </div>
 
-      <div class="quote">
-        <h4 id="dailyQ">Daily Quote</h4>
-        <h4>{{ quote$ }}</h4>
-        <h5>- {{ author$ }}</h5>
+        <div class="quote">
+          <h4 id="dailyQ">Daily Quote</h4>
+          <h4>{{ quote$ }}</h4>
+          <h5>- {{ author$ }}</h5>
+        </div>
       </div>
 
     </div>
@@ -43,4 +31,9 @@
       <app-mood-chart></app-mood-chart>
     </ng-template>
   </ng-template>
+
+  <ng-template #reflect>
+    <app-past-reflection></app-past-reflection>
+  </ng-template>
+
 </div>

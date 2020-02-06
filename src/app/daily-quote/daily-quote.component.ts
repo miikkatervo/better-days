@@ -3,6 +3,7 @@ import { QuoteService } from '../core/quote.service';
 import { UsersMoodService } from '../core/users-mood.service';
 import { MoodService } from '../core/mood.service';
 import { AuthService } from '../core/auth.service';
+import { database } from 'firebase';
 
 @Component({
   selector: 'app-daily-quote',
@@ -13,13 +14,13 @@ export class DailyQuoteComponent implements OnInit {
 
   quote$: string;
   author$: string;
-  moods$: Array<Object>;
+  moods$: any;
   currentMood$: Number;
   feeling$:string;
   fcolor$:string;
-  isCollapsed: boolean;
   showChart:boolean;
   showLoading:boolean = true;
+  showReflect:boolean = false;
 
   constructor(private quoteService: QuoteService,
               private userMood: UsersMoodService,
@@ -40,17 +41,19 @@ export class DailyQuoteComponent implements OnInit {
     this.showChart = this.moodService.showChart$;
   }
 
-  helpMood(mood: Number) {
+  helpMood(mood: number) {
     this.currentMood$ = mood;
     if(mood >= 3) {
       this.moodService.getMood().subscribe(moods => {
-        const data = moods.filter(x => x.mood <= 2 && x.onyourmind.length > 0).map(y=> y.onyourmind);
-        this.moods$ = data[Math.floor(Math.random() * data.length)]
+        const data = moods.filter(x => x.mood <= 2 && x.onyourmind.length > 0).map(y=> [y.onyourmind, y.date.toDate().toDateString()]);
+        if(data.length > 0) this.moods$ = data[Math.floor(Math.random() * data.length)];
+        else this.moods$ = ["No past mood yet",""];
       });
     } else {
       this.moodService.getMood().subscribe(moods => {
-        const data = moods.filter(x => x.mood >= 3 && x.grateful.length > 0).map(y=> y.grateful);
-        this.moods$ = data[Math.floor(Math.random() * data.length)]
+        const data = moods.filter(x => x.mood >= 3 && x.grateful.length > 0).map(y=> [y.grateful, y.date.toDate().toDateString()]);
+        if(data.length > 0) this.moods$ = data[Math.floor(Math.random() * data.length)];
+        else this.moods$ = ["No past mood yet",""];
       });
     }
   }

@@ -2,22 +2,22 @@
     padding-top: 30px;
     font-size: 20px;
 }
-#summary {
+#summary{
     margin-bottom: 25px;
     font-family: 'Pacifico', cursive; 
     text-align: center;
 }
-.quote {
+.quote{
     margin-top: 30px;
     margin-left: 5;
 }
-.quote #dailyQ {
+.quote #dailyQ{
     font-family: 'Pacifico', cursive; 
     margin-bottom: 10px;
 }
 
-#feeling p {
-    font-size: 15px;
+#feeling{
+    margin-top: 20px;
 }
 
 #feeling-button{
@@ -25,13 +25,18 @@
 }
 
 #chartBut{
-    margin-top: 1opx;
+    margin-top: 10px;
 }
-
-h4, h5{
+#cur{
+    font-weight: bold;
+}
+.quote h4, h5{
     font-family: 'Crimson Text', serif;
 }
-
+#reflectBut{
+    margin-top: 15px;
+    margin-bottom: 10px;;
+}
 #feeling{
     display: inline-flex;
 }

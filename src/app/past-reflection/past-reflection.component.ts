@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DailyQuoteComponent } from '../daily-quote/daily-quote.component';
 
 @Component({
   selector: 'app-past-reflection',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PastReflectionComponent implements OnInit {
 
-  constructor() { }
+  pastFeeling: any;
+  currentMood$: Number;
+  constructor(public dailyQ: DailyQuoteComponent) { }
 
   ngOnInit() {
+    this.pastFeeling = this.dailyQ.moods$;
+    this.currentMood$ = this.dailyQ.currentMood$;
+  }
+  goBack() {
+    this.dailyQ.showReflect = !this.dailyQ.showReflect;
   }
 
 }
