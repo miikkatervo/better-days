@@ -10,11 +10,14 @@ import {
 
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { User } from './user.model';
+import { User } from '../models/user.model';
+import { UserProfileComponent } from '../user-profile/user-profile.component';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   user$: Observable<any>;
+  uid$: string;
+  showLoading: boolean = true;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -24,6 +27,7 @@ export class AuthService {
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
         if (user) {
+          this.uid$ = user.uid;
           return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
           return of(null);
@@ -44,19 +48,22 @@ export class AuthService {
     return this.router.navigate(['/']);
   }
 
-  private updateUserData(user) {
-    // Sets user data to firestore on login
+  private updateUserData(user) { // Sets user data to firestore on login
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
 
     const data = {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
-      photoURL: user.photoURL
+      photoURL: user.photoURL,
     };
 
     return userRef.set(data, { merge: true });
 
+  }
+
+  getUid() {
+    return this.uid$;
   }
 
 }

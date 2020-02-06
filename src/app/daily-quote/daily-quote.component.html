@@ -1,0 +1,39 @@
+<div class="container">
+  <app-loading-spinner *ngIf="showLoading$; else data"></app-loading-spinner>
+  <ng-template #data>
+    <div *ngIf="!showChart; else chart">
+      <div *ngIf="!showReflect; else reflect">
+        <div class="mood">
+          <h2 id="summary">Summary</h2>
+          <div id="feeling">
+            <h4>You are feeling&nbsp;</h4>
+            <h4 id="cur">{{ feeling$ }}</h4>
+          </div>
+          <div>
+            <button type="button" class="btn btn-outline-primary" id="reflectBut" (click)="showReflect = true">
+              Reflection on your current mood
+            </button>
+          </div>
+          <button type="button" class="btn btn-outline-primary" id="chartBut" (click)="changeToChart()">
+            Show past moods
+          </button>
+        </div>
+
+        <div class="quote">
+          <h4 id="dailyQ">Daily Quote</h4>
+          <h4>{{ quote$ }}</h4>
+          <h5>- {{ author$ }}</h5>
+        </div>
+      </div>
+
+    </div>
+    <ng-template #chart>
+      <app-mood-chart></app-mood-chart>
+    </ng-template>
+  </ng-template>
+
+  <ng-template #reflect>
+    <app-past-reflection></app-past-reflection>
+  </ng-template>
+
+</div>

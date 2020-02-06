@@ -8,6 +8,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CoreModule } from './core/core.module';
 import { AngularFireModule } from '@angular/fire';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { AddMoodItemComponent } from './add-mood-item/add-mood-item.component';
+import { FormsModule } from '@angular/forms';
+import { DailyQuoteComponent } from './daily-quote/daily-quote.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { MoodChartComponent } from './mood-chart/mood-chart.component';
+import { PastReflectionComponent } from './past-reflection/past-reflection.component';
 
 var config = {
   apiKey: "AIzaSyDc58a8KmQMX3xdceN_26PT1Lx0W8Xxk1Y",
@@ -25,13 +32,20 @@ var config = {
     AppComponent,
     SurveyComponent,
     UserProfileComponent,
+    AddMoodItemComponent,
+    DailyQuoteComponent,
+    LoadingSpinnerComponent,
+    MoodChartComponent,
+    PastReflectionComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     CoreModule,
-    AngularFireModule.initializeApp(config)
+    AngularFireModule.initializeApp(config),
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

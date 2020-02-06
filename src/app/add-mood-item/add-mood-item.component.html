@@ -1,0 +1,35 @@
+<div *ngIf="!surveyDone; else dailyQuote" class="container">
+
+  <h2>Daily Mood Survey</h2>
+
+  <form (ngSubmit)="onSubmit()" name="moodSurvey">
+
+    <h4>How do you feel right now?</h4>
+    <select name="mood" [(ngModel)]="moodItem.mood" required>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    <p>1 = life sucks, 5 = couldn't be happier</p>
+    <div class="form-group">
+      <label for="grateful">What are you grateful for today?</label>
+      <input type="text" class="form-control" id="grateful" name="grateful" [(ngModel)]="moodItem.grateful" required>
+    </div>
+
+    <div class="form-group">
+      <label for="onMyMind">What are you stressed / worried about?</label>
+      <input type="text" class="form-control" id="onMyMind" name="onMyMind" [(ngModel)]="moodItem.onyourmind" required>
+    </div>
+
+    <button type="submit" id="submit" class="btn btn-success">Submit</button>
+
+  </form>
+</div>
+
+<ng-template #dailyQuote>
+  <app-daily-quote></app-daily-quote>
+</ng-template>
+
+

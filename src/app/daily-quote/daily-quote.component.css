@@ -1,0 +1,46 @@
+.mood{
+    padding-top: 30px;
+    font-size: 20px;
+}
+#summary{
+    margin-bottom: 25px;
+    font-family: 'Pacifico', cursive; 
+    text-align: center;
+}
+.quote{
+    margin-top: 30px;
+    margin-left: 5;
+}
+.quote #dailyQ{
+    font-family: 'Pacifico', cursive; 
+    margin-bottom: 10px;
+}
+
+#feeling{
+    margin-top: 20px;
+    display: inline-flex;
+}
+
+#feeling-button{
+    margin-left: 10px;
+}
+
+#chartBut{
+    margin-top: 10px;
+}
+#cur{
+    font-weight: bold;
+}
+.quote h4, h5{
+    font-family: 'Crimson Text', serif;
+}
+#reflectBut{
+    margin-top: 15px;
+    margin-bottom: 10px;;
+}
+
+h6 {
+    padding-top: 30px;
+    text-align: center;
+    font-size: 20px;
+}

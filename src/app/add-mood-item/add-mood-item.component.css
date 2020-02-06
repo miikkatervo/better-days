@@ -1,0 +1,20 @@
+.container {
+    padding-top: 35px;
+}
+
+h2 {
+    padding-bottom: 20px;
+    font-family: 'Pacifico', cursive; 
+}
+
+p {
+    margin-top: 10px;
+}
+
+.form-group {
+    margin-top: 20px;
+}
+
+#submit {
+    margin-top: 10px;
+}
